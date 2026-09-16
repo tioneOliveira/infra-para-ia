@@ -50,14 +50,14 @@ spec:
             httpGet:
               path: /health
               port: 8000
-            initialDelaySeconds: 5    # carência para o modelo carregar
-            periodSeconds: 5          # pergunta a cada 5 s
-            failureThreshold: 3       # 3 falhas seguidas: sai dos endpoints do Service
+            initialDelaySeconds: 6    # 5 (número original de segundos) / 3 (número original de réplicas) = 1.666, por regra de três, arredondando o valor para cima, para 4 réplicas precisamos de 6 segundos.
+            periodSeconds: 6          # mesma justificativa que o initialDelaySeconds
+            failureThreshold: 4       # 3 falhas para 3 réplicas, 4 falhas para 3 replicas. Com mais réplicas podemos dar-nos o luxo de mais falhas para forçar o reinicio.
 
           livenessProbe:          # "ainda está vivo?"
             httpGet:
               path: /health
               port: 8000
-            initialDelaySeconds: 15   # mais tolerante que a readiness, de propósito
-            periodSeconds: 10
-            failureThreshold: 3       # 3 falhas seguidas: o container é reiniciado
+            initialDelaySeconds: 20   # 15 (número original de segundos) / 3 (número original de réplicas) = 5, por regra de três, para 4 réplicas precisamos de 20 segundos.
+            periodSeconds: 13         # 10 (número original de segundos) / 3 (número original de réplicas) = 3.33, por regra de três, arredondando o valor para baixo, para 4 réplicas precisamos de 13 segundos.
+            failureThreshold: 4       # 3 falhas para 3 réplicas, 4 falhas para 3 replicas. Com mais réplicas podemos dar-nos o luxo de mais falhas para forçar o reinicio.
