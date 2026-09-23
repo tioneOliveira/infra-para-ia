@@ -46,7 +46,7 @@ variable "memoria" {
 variable "node_vm_size" {
   description = "Tamanho da VM utilizada pelos nós do cluster AKS."
   type        = string
-  default     = "Standard_B2s_v2"
+  default     = "Standard_B2as_v2"
 }
 
 variable "node_count" {
