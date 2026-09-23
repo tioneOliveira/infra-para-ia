@@ -6,5 +6,7 @@
 # Por exemplo: anaejoao
 dupla = "patricktione"
 
+turma = "2026-2"
+
 # A prática começa em v2 e troca para v3 na etapa 3.
 imagem_tag = "v2"
