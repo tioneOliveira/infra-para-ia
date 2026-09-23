@@ -4,7 +4,7 @@
 
 # Troque por um apelido em minúsculas, sem espaço, de 3 a 12 caracteres.
 # Por exemplo: anaejoao
-dupla = "patricktione"
+dupla = "SUADUPLA"
 
 turma = "2026-2"
 
